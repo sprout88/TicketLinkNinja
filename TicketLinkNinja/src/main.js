@@ -25,8 +25,8 @@ const createWindow = () => {
 
 const { ipcMain } = require('electron');
 
-ipcMain.on('open-url', handleOpenUrl);
 const handleOpenChildWindow = require('./main-api/open-child-window');
+
 ipcMain.on('open-child-window', handleOpenChildWindow);
 
 // This method will be called when Electron has finished
