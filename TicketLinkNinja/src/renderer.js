@@ -34,6 +34,6 @@ const openBtn = document.getElementById('open-ticketlink');
 
 if (openBtn) {
   openBtn.addEventListener('click', () => {
-    window.electronAPI?.openUrl?.('https://www.ticketlink.co.kr/');
+    const ticketWindow= window.electronAPI?.openUrl?.('https://www.ticketlink.co.kr/');
   });
 }
