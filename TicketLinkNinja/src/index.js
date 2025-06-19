@@ -6,10 +6,6 @@ if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
-try {
-  require('electron-reloader')(module);
-} catch (_) {}
-
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
