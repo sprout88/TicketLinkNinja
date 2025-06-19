@@ -27,6 +27,8 @@
  */
 
 import './index.css';
+import { sayHello } from './renderer-api/test-renderer-api.js';
+sayHello();
 
 console.log('👋 This message is being logged by "renderer.js", included via webpack');
 
