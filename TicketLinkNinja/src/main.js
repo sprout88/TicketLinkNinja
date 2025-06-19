@@ -25,18 +25,8 @@ const createWindow = () => {
 
 const { ipcMain } = require('electron');
 
-ipcMain.on('open-ticketlink', () => {
-  const ticketWindow = new BrowserWindow({
-    width: 1024,
-    height: 768,
-    title: '티켓링크',
-    webPreferences: {
-      contextIsolation: true
-    }
-  });
-
-  ticketWindow.loadURL('https://www.ticketlink.co.kr/');
-});
+const handleOpenUrl = require('./main-api/open-url');
+ipcMain.on('open-url', handleOpenUrl);
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

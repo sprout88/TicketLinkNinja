@@ -4,5 +4,5 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('electronAPI', {
-  openTicketlinkWindow: () => ipcRenderer.send('open-ticketlink')
+  openUrl: (url) => ipcRenderer.send('open-url', url)
 });

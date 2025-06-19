@@ -29,3 +29,12 @@
 import './index.css';
 
 console.log('👋 This message is being logged by "renderer.js", included via webpack');
+
+const openBtn = document.getElementById('open-ticketlink');
+
+if (openBtn) {
+  openBtn.addEventListener('click', () => {
+    // window.electronAPI?.openUrl?.('https://www.ticketlink.co.kr/');
+    window.electronAPI?.openUrl?.('unknown');
+  });
+}
