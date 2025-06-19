@@ -36,10 +36,21 @@ if (openBtn) {
   openBtn.addEventListener('click', () => {
     const ticketWindow= window.electronAPI?.openChildWindow?.('https://www.ticketlink.co.kr/');
   });
+}
+
+const checkBtn = document.getElementById('check-child-window');
+const statusText = document.getElementById('child-window-status');
 const testPreloadBtn = document.getElementById('test-preload-button');
+
 if (testPreloadBtn){
   testPreloadBtn.addEventListener('click', () => {
     window.electronAPI?.testPreload();
   });
 }
+
+if (checkBtn && statusText) {
+  checkBtn.addEventListener('click', async () => {
+    const isOpen = await window.electronAPI?.checkChildWindow?.();
+    statusText.textContent = `상태: ${isOpen ? '열림' : '닫힘'}`;
+  });
 }
