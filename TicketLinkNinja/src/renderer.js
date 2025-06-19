@@ -30,10 +30,10 @@ import './index.css';
 
 console.log('👋 This message is being logged by "renderer.js", included via webpack');
 
-const openBtn = document.getElementById('open-ticketlink');
+const openBtn = document.getElementById('open-child-window');
 
 if (openBtn) {
   openBtn.addEventListener('click', () => {
-    const ticketWindow= window.electronAPI?.openUrl?.('https://www.ticketlink.co.kr/');
+    const ticketWindow= window.electronAPI?.openChildWindow?.('https://www.ticketlink.co.kr/');
   });
 }
