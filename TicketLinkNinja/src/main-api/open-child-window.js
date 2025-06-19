@@ -1,5 +1,5 @@
 const { BrowserWindow } = require('electron');
-const store = require('./store');
+const store = require('./main-store');
 
 module.exports = (event, url) => {
   const win = new BrowserWindow({
