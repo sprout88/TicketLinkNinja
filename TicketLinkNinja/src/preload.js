@@ -4,7 +4,7 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('electronAPI', {
-  openUrl: (url) => ipcRenderer.send('open-url', url)
+  openUrl: (url) => ipcRenderer.send('open-url', url),
   testPreload: () => {
     console.log('👋 preload 연결 테스트 성공!');
     alert('👋 Preload!!!');
