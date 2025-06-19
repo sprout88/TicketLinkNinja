@@ -36,4 +36,10 @@ if (openBtn) {
   openBtn.addEventListener('click', () => {
     const ticketWindow= window.electronAPI?.openChildWindow?.('https://www.ticketlink.co.kr/');
   });
+const testPreloadBtn = document.getElementById('test-preload-button');
+if (testPreloadBtn){
+  testPreloadBtn.addEventListener('click', () => {
+    window.electronAPI?.testPreload();
+  });
+}
 }
