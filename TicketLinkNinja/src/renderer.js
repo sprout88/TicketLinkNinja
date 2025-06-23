@@ -36,10 +36,9 @@ const openBtn = document.getElementById('open-child-window');
 
 if (openBtn) {
   openBtn.addEventListener('click', () => {
-    // const ticketWindow= window.electronAPI?.openChildWindow?.('https://www.ticketlink.co.kr/');
-    	
-    const url = 'https://webhook.site/6c2ffb01-4fcc-4df0-9f0c-8d47202e08d9';
-    window.electronAPI?.openChildWindowWithUA?.(url, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/114.0.0.0 Safari/537.36');
+    const ticket_url = 'https://www.ticketlink.co.kr/';
+    
+    window.electronAPI?.openChildWindowWithUA?.(ticket_url, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/114.0.0.0 Safari/537.36');
   });
 }
 
