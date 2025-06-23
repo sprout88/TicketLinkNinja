@@ -9,5 +9,5 @@ contextBridge.exposeInMainWorld('electronAPI', {
     console.log('👋 preload 연결 테스트 성공!');
     alert('👋 Preload!!!');
   },
-  openChildWindow: (url) => ipcRenderer.send('open-child-window', url),
+  openChildWindowWithUA: (url, userAgent) => ipcRenderer.send('open-child-window-with-ua', { url, userAgent }),
 });

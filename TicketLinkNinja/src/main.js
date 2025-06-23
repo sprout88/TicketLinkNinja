@@ -29,6 +29,20 @@ const handleOpenChildWindow = require('./main-api/open-child-window');
 
 ipcMain.on('open-child-window', handleOpenChildWindow);
 
+ipcMain.on('open-child-window-with-ua', (event, { url, userAgent }) => {
+  const childWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
+      contextIsolation: true,
+    },
+  });
+
+  childWindow.webContents.setUserAgent(userAgent);
+  childWindow.loadURL(url);
+});
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
