@@ -2,7 +2,7 @@ function runJs(win, script) {
   if (win && !win.isDestroyed()) {
     return win.webContents.executeJavaScript(script);
   }
-  return Promise.reject(new Error('Invalid or closed window'));
+  return Promise.resolve('[SKIPPED] no window');
 }
 
 module.exports = { runJs };

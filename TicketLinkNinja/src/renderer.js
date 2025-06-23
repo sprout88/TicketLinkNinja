@@ -64,6 +64,11 @@ const test1Btn = document.getElementById('btn-test1');
 if (test1Btn) {
   test1Btn.addEventListener('click', () => {
     const code = `alert('자식 창에서 실행된 코드입니다.');`;
-    window.electronAPI?.runJs?.(code);
+    const console_output = document.getElementById('console-output');
+    window.electronAPI?.runJs?.(code).then(result => {
+      if (console_output) {
+        console_output.textContent = String(result);
+      }
+    });
   });
 }
