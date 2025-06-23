@@ -27,9 +27,9 @@ const createWindow = () => {
 const { ipcMain } = require('electron');
 
 // main-api
-const handleOpenChildWindow = require('./main-api/open-child-window');
-const { runJs } = require('./main-api/run-js');
-const { setChildWindow, getChildWindow } = require('./main-api/main-store');
+const handleOpenChildWindow = require('./ipc-handlers/open-child-window');
+const { runJs } = require('./ipc-handlers/run-js');
+const { setChildWindow, getChildWindow } = require('./ipc-handlers/main-store');
 
 // ipc event listeners
 ipcMain.on('open-child-window', handleOpenChildWindow);
