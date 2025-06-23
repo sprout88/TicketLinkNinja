@@ -39,8 +39,9 @@ ipcMain.on('open-child-window-with-ua', (event, { url, userAgent }) => {
     width: 800,
     height: 600,
     webPreferences: {
-      preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
+      preload: path.resolve(app.getAppPath(), 'src/preload-child.js'),
       contextIsolation: true,
+      nodeIntegration: false,
     },
   });
 

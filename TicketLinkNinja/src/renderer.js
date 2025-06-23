@@ -37,7 +37,7 @@ const openBtn = document.getElementById('open-child-window');
 if (openBtn) {
   openBtn.addEventListener('click', () => {
     const ticket_url = 'https://www.ticketlink.co.kr/';
-    
+    // const ticket_url = 'https://www.naver.com'
     window.electronAPI?.openChildWindowWithUA?.(ticket_url, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/114.0.0.0 Safari/537.36');
   });
 }
