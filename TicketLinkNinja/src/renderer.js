@@ -1,4 +1,4 @@
-/**
+/****
  * This file will automatically be loaded by webpack and run in the "renderer" context.
  * To learn more about the differences between the "main" and the "renderer" context in
  * Electron, visit:
@@ -56,5 +56,14 @@ if (checkBtn && statusText) {
   checkBtn.addEventListener('click', async () => {
     const isOpen = await window.electronAPI?.checkChildWindow?.();
     statusText.textContent = `상태: ${isOpen ? '열림' : '닫힘'}`;
+  });
+}
+
+const test1Btn = document.getElementById('btn-test1');
+
+if (test1Btn) {
+  test1Btn.addEventListener('click', () => {
+    const code = `alert('자식 창에서 실행된 코드입니다.');`;
+    window.electronAPI?.runJs?.(code);
   });
 }

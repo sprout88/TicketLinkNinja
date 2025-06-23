@@ -10,4 +10,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
     alert('👋 Preload!!!');
   },
   openChildWindowWithUA: (url, userAgent) => ipcRenderer.send('open-child-window-with-ua', { url, userAgent }),
+  sendToChild: (message) => ipcRenderer.send('send-to-child', message),
+  runJs: (code) => ipcRenderer.invoke('run-js', code),
 });

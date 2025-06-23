@@ -1,6 +1,7 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('node:path');
 
+
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
   app.quit();
@@ -25,12 +26,16 @@ const createWindow = () => {
 
 const { ipcMain } = require('electron');
 
+// main-api
 const handleOpenChildWindow = require('./main-api/open-child-window');
+const { runJs } = require('./main-api/run-js');
+const { setChildWindow, getChildWindow } = require('./main-api/main-store');
 
+// ipc event listeners
 ipcMain.on('open-child-window', handleOpenChildWindow);
 
 ipcMain.on('open-child-window-with-ua', (event, { url, userAgent }) => {
-  const childWindow = new BrowserWindow({
+  const newWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -39,8 +44,14 @@ ipcMain.on('open-child-window-with-ua', (event, { url, userAgent }) => {
     },
   });
 
-  childWindow.webContents.setUserAgent(userAgent);
-  childWindow.loadURL(url);
+  setChildWindow(newWindow);
+
+  newWindow.webContents.setUserAgent(userAgent);
+  newWindow.loadURL(url);
+});
+
+ipcMain.handle('run-js', async (event, script) => {
+  return runJs(getChildWindow(), script);
 });
 
 // This method will be called when Electron has finished
